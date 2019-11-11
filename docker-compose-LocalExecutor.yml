@@ -17,8 +17,9 @@ services:
             - EXECUTOR=Local
         volumes:
             - ./dags:/usr/local/airflow/dags
+            - /home/oscar/PycharmProjects/data-piplining/sample_files:/usr/local/airflow/test
             # Uncomment to include custom plugins
-            # - ./plugins:/usr/local/airflow/plugins
+            - ./plugins:/usr/local/airflow/plugins
         ports:
             - "8080:8080"
         command: webserver
