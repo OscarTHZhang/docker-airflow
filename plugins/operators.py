@@ -5,10 +5,9 @@ import os
 from airflow.models import BaseOperator
 from airflow.plugins_manager import AirflowPlugin
 from airflow.utils.decorators import apply_defaults
-from ingest_scripts.python.feed_ingest.data_ingest import feedwatch_parser
+
 
 log = logging.getLogger(__name__)
-os.chdir("/home/oscar/PycharmProjects/docker-airflow")
 
 
 class StartOperator(BaseOperator):
@@ -47,7 +46,7 @@ class ScriptParser(BaseOperator):
     def execute(self, context):
         log.info("Initiate ScriptParser Operator at {} on {}".format(datetime.time, datetime.time))
         log.info("Parsing file in {}".format(self.directory))
-        feedwatch_parser(test=True, farm_id="123", filename=self.directory, db_engine=None)
+        # feedwatch_parser(test=True, farm_id="123", filename=self.directory, db_engine=None)
         task_instance = context['task_instance']
         task_instance.xcom_push('parsing_object', self.directory)
 

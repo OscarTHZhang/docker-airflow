@@ -4,8 +4,7 @@ from datetime import datetime
 from airflow import DAG
 from airflow.contrib.sensors.file_sensor import FileSensor
 
-
-os.chdir("/home/oscar/PycharmProjects/docker-airflow")
+from plugins.operators import StartOperator, ScriptParser
 
 dag = DAG('my_operator_tester_dag',
           description="'Testing custom operators",
