@@ -80,6 +80,7 @@ EXPOSE 8080 5555 8793
 USER airflow
 WORKDIR ${AIRFLOW_USER_HOME}
 RUN mkdir ${AIRFLOW_HOME}/test/
-RUN chmod  
+RUN mkdir ${AIRFLOW_HOME}/ingest_scripts/
+
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["webserver"] # set default arg for entrypoint
