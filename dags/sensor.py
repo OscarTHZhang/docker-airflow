@@ -1,10 +1,9 @@
-import os
 from datetime import datetime
 
 from airflow import DAG
 from airflow.contrib.sensors.file_sensor import FileSensor
 
-from plugins.operators import StartOperator, ScriptParser
+from operators.my_operators import StartOperator, ScriptParser
 
 dag = DAG('my_operator_tester_dag',
           description="'Testing custom operators",

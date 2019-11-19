@@ -8,13 +8,14 @@ services:
             - POSTGRES_DB=airflow
 
     webserver:
-        image: camila:0.1
+        image: cabello
         restart: always
         depends_on:
             - postgres
         environment:
             - LOAD_EX=n
             - EXECUTOR=Local
+            # - FERNET_KEY="C7rSqWZE76-Xox4VtLIbFWsLTsr1xIWq21zDEgpSxWs="
         volumes:
             - ./dags:/usr/local/airflow/dags
             - ./test:/usr/local/airflow/test

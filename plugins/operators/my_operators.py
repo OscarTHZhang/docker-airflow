@@ -27,10 +27,31 @@ class StartOperator(BaseOperator):
         :return:
         """
         log.info("Hello World!")
-        log.info("Starting the StartOperator at {} on {}".format(datetime.time, datetime.date))
+        log.info("Starting the StartOperator at {} on {}".format(datetime.time(), datetime.date()))
         task_instance = context['task_instance']
         sensor_minute = task_instance.xcom_pull('my_file_sensor_task', key='sensed_file_path')
         log.info('Valid minute as determined by sensor: {}'.format(sensor_minute))
+
+
+class DirectorySensor(BaseOperator):
+    """
+    Self-defined class for Directory Sensor
+    """
+    @apply_defaults
+    def __init__(self, directory, task_id='directory_sensor', *args, **kwargs):
+        super(DirectorySensor, self).__init__(*args, **kwargs)
+        self.directory = directory
+
+    def execute(self, context):
+        files = []
+        log.info("Initiate DirecotrySensor Operator at {} on {}".format(datetime.time(), datetime.date()))
+        log.info("Parsing file in {}".format(self.directory))
+        for file in os.listdir(self.directory):
+            if file.endswith(".csv"):
+                files.append(file)
+        task_instance = context['task_instance']
+        task_instance.xcom_push('file_list', files)
+
 
 
 class ScriptParser(BaseOperator):
@@ -39,13 +60,14 @@ class ScriptParser(BaseOperator):
     """
 
     @apply_defaults
-    def __init__(self, directory, *args, **kwargs):
+    def __init__(self, directory, task_id='script_parser', *args, **kwargs):
         super(ScriptParser, self).__init__(*args, **kwargs)
         self.directory = directory
 
     def execute(self, context):
-        log.info("Initiate ScriptParser Operator at {} on {}".format(datetime.time, datetime.time))
+        log.info("Initiate ScriptParser Operator at {} on {}".format(datetime.time(), datetime.date()))
         log.info("Parsing file in {}".format(self.directory))
+        files = context['task_instance'].xcom_pull()
         # feedwatch_parser(test=True, farm_id="123", filename=self.directory, db_engine=None)
         task_instance = context['task_instance']
         task_instance.xcom_push('parsing_object', self.directory)
