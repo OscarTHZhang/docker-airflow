@@ -6,6 +6,7 @@ from airflow.models import BaseOperator
 from airflow.plugins_manager import AirflowPlugin
 from airflow.utils.decorators import apply_defaults
 
+from operators import feedwatch_parser
 
 log = logging.getLogger(__name__)
 
@@ -27,7 +28,7 @@ class StartOperator(BaseOperator):
         :return:
         """
         log.info("Hello World!")
-        log.info("Starting the StartOperator at {} on {}".format(datetime.time(), datetime.date()))
+        log.info("Starting the StartOperator")
         task_instance = context['task_instance']
         sensor_minute = task_instance.xcom_pull('my_file_sensor_task', key='sensed_file_path')
         log.info('Valid minute as determined by sensor: {}'.format(sensor_minute))
@@ -38,20 +39,21 @@ class DirectorySensor(BaseOperator):
     Self-defined class for Directory Sensor
     """
     @apply_defaults
-    def __init__(self, directory, task_id='directory_sensor', *args, **kwargs):
+    def __init__(self, directory, *args, **kwargs):
         super(DirectorySensor, self).__init__(*args, **kwargs)
         self.directory = directory
 
     def execute(self, context):
         files = []
-        log.info("Initiate DirecotrySensor Operator at {} on {}".format(datetime.time(), datetime.date()))
+        log.info("Initiate DirecotrySensor Operator")
         log.info("Parsing file in {}".format(self.directory))
         for file in os.listdir(self.directory):
             if file.endswith(".csv"):
-                files.append(file)
+                files.append(os.path.join(self.directory, file))
+
         task_instance = context['task_instance']
         task_instance.xcom_push('file_list', files)
-
+        return files
 
 
 class ScriptParser(BaseOperator):
@@ -60,15 +62,25 @@ class ScriptParser(BaseOperator):
     """
 
     @apply_defaults
-    def __init__(self, directory, task_id='script_parser', *args, **kwargs):
+    def __init__(self, directory, *args, **kwargs):
         super(ScriptParser, self).__init__(*args, **kwargs)
         self.directory = directory
 
     def execute(self, context):
-        log.info("Initiate ScriptParser Operator at {} on {}".format(datetime.time(), datetime.date()))
+        log.info("Initiate ScriptParser Operator")
         log.info("Parsing file in {}".format(self.directory))
-        files = context['task_instance'].xcom_pull()
-        # feedwatch_parser(test=True, farm_id="123", filename=self.directory, db_engine=None)
+        # files = context['task_instance'].xcom_pull()
+        files = context['task_instance'].xcom_pull(key='file_list')
+        # I want to pull this variable from the context
+
+        # for file in os.listdir(self.directory):
+        #     if file.endswith('.csv'):
+        #         files.append(file)
+        #
+        log.info(files)
+        for f in files:
+            feedwatch_parser.parse_file(test=True, farm_id="123", filename=f, db_engine=None)
+
         task_instance = context['task_instance']
         task_instance.xcom_push('parsing_object', self.directory)
 
@@ -78,7 +90,7 @@ class MyPlugins(AirflowPlugin):
     This class will initialize the plugins I made above
     """
     name = "my_first_plugin"
-    operators = [StartOperator, ScriptParser]
+    operators = [StartOperator, DirectorySensor, ScriptParser]
     # A list of class(es) derived from BaseHook
     hooks = []
     # A list of class(es) derived from BaseExecutor
