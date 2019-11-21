@@ -28,7 +28,7 @@ class StartOperator(BaseOperator):
         :return:
         """
         log.info("Hello World!")
-        log.info("Starting the StartOperator")
+        log.info("Starting the StartOperator <{}>".format(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")))
         task_instance = context['task_instance']
         sensor_minute = task_instance.xcom_pull('my_file_sensor_task', key='sensed_file_path')
         log.info('Valid minute as determined by sensor: {}'.format(sensor_minute))
@@ -69,14 +69,7 @@ class ScriptParser(BaseOperator):
     def execute(self, context):
         log.info("Initiate ScriptParser Operator")
         log.info("Parsing file in {}".format(self.directory))
-        # files = context['task_instance'].xcom_pull()
         files = context['task_instance'].xcom_pull(key='file_list')
-        # I want to pull this variable from the context
-
-        # for file in os.listdir(self.directory):
-        #     if file.endswith('.csv'):
-        #         files.append(file)
-        #
         log.info(files)
         for f in files:
             feedwatch_parser.parse_file(test=True, farm_id="123", filename=f, db_engine=None)
