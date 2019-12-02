@@ -1,0 +1,267 @@
+,farm_id,company_name,pen_type,ingredient_name,as_fed_quantity,as_fed_tons,date
+0,,"Larson Acres, Inc.",Heifer,1st Haylage 4,"45,715",22.86,2018-03-01
+1,,"Larson Acres, Inc.",Heifer,1st Haylage 4,"45,715",22.86,2018-03-02
+2,,"Larson Acres, Inc.",Heifer,1st Haylage 4,"45,715",22.86,2018-03-03
+3,,"Larson Acres, Inc.",Heifer,1st Haylage 4,"45,715",22.86,2018-03-04
+4,,"Larson Acres, Inc.",Heifer,1st Haylage 4,"45,715",22.86,2018-03-05
+5,,"Larson Acres, Inc.",Heifer,1st Haylage 4,"45,715",22.86,2018-03-06
+6,,"Larson Acres, Inc.",Heifer,1st Haylage 4,"45,715",22.86,2018-03-07
+7,,"Larson Acres, Inc.",Heifer,2ndHay7 2017,"4,684",2.34,2018-03-01
+8,,"Larson Acres, Inc.",Heifer,2ndHay7 2017,"4,684",2.34,2018-03-02
+9,,"Larson Acres, Inc.",Heifer,2ndHay7 2017,"4,684",2.34,2018-03-03
+10,,"Larson Acres, Inc.",Heifer,2ndHay7 2017,"4,684",2.34,2018-03-04
+11,,"Larson Acres, Inc.",Heifer,2ndHay7 2017,"4,684",2.34,2018-03-05
+12,,"Larson Acres, Inc.",Heifer,2ndHay7 2017,"4,684",2.34,2018-03-06
+13,,"Larson Acres, Inc.",Heifer,2ndHay7 2017,"4,684",2.34,2018-03-07
+14,,"Larson Acres, Inc.",Heifer,beansroast9 ,"1,490",0.75,2018-03-01
+15,,"Larson Acres, Inc.",Heifer,beansroast9 ,"1,490",0.75,2018-03-02
+16,,"Larson Acres, Inc.",Heifer,beansroast9 ,"1,490",0.75,2018-03-03
+17,,"Larson Acres, Inc.",Heifer,beansroast9 ,"1,490",0.75,2018-03-04
+18,,"Larson Acres, Inc.",Heifer,beansroast9 ,"1,490",0.75,2018-03-05
+19,,"Larson Acres, Inc.",Heifer,beansroast9 ,"1,490",0.75,2018-03-06
+20,,"Larson Acres, Inc.",Heifer,beansroast9 ,"1,490",0.75,2018-03-07
+21,,"Larson Acres, Inc.",Heifer,Cook1&2Mix-8,"1,824",0.91,2018-03-01
+22,,"Larson Acres, Inc.",Heifer,Cook1&2Mix-8,"1,824",0.91,2018-03-02
+23,,"Larson Acres, Inc.",Heifer,Cook1&2Mix-8,"1,824",0.91,2018-03-03
+24,,"Larson Acres, Inc.",Heifer,Cook1&2Mix-8,"1,824",0.91,2018-03-04
+25,,"Larson Acres, Inc.",Heifer,Cook1&2Mix-8,"1,824",0.91,2018-03-05
+26,,"Larson Acres, Inc.",Heifer,Cook1&2Mix-8,"1,824",0.91,2018-03-06
+27,,"Larson Acres, Inc.",Heifer,Cook1&2Mix-8,"1,824",0.91,2018-03-07
+28,,"Larson Acres, Inc.",Heifer,CookLrgHfr,273,0.14,2018-03-01
+29,,"Larson Acres, Inc.",Heifer,CookLrgHfr,273,0.14,2018-03-02
+30,,"Larson Acres, Inc.",Heifer,CookLrgHfr,273,0.14,2018-03-03
+31,,"Larson Acres, Inc.",Heifer,CookLrgHfr,273,0.14,2018-03-04
+32,,"Larson Acres, Inc.",Heifer,CookLrgHfr,273,0.14,2018-03-05
+33,,"Larson Acres, Inc.",Heifer,CookLrgHfr,273,0.14,2018-03-06
+34,,"Larson Acres, Inc.",Heifer,CookLrgHfr,273,0.14,2018-03-07
+35,,"Larson Acres, Inc.",Heifer,Cornsilage17,"22,054",11.03,2018-03-01
+36,,"Larson Acres, Inc.",Heifer,Cornsilage17,"22,054",11.03,2018-03-02
+37,,"Larson Acres, Inc.",Heifer,Cornsilage17,"22,054",11.03,2018-03-03
+38,,"Larson Acres, Inc.",Heifer,Cornsilage17,"22,054",11.03,2018-03-04
+39,,"Larson Acres, Inc.",Heifer,Cornsilage17,"22,054",11.03,2018-03-05
+40,,"Larson Acres, Inc.",Heifer,Cornsilage17,"22,054",11.03,2018-03-06
+41,,"Larson Acres, Inc.",Heifer,Cornsilage17,"22,054",11.03,2018-03-07
+42,,"Larson Acres, Inc.",Heifer,Crnslge17BMR,"16,728",8.36,2018-03-01
+43,,"Larson Acres, Inc.",Heifer,Crnslge17BMR,"16,728",8.36,2018-03-02
+44,,"Larson Acres, Inc.",Heifer,Crnslge17BMR,"16,728",8.36,2018-03-03
+45,,"Larson Acres, Inc.",Heifer,Crnslge17BMR,"16,728",8.36,2018-03-04
+46,,"Larson Acres, Inc.",Heifer,Crnslge17BMR,"16,728",8.36,2018-03-05
+47,,"Larson Acres, Inc.",Heifer,Crnslge17BMR,"16,728",8.36,2018-03-06
+48,,"Larson Acres, Inc.",Heifer,Crnslge17BMR,"16,728",8.36,2018-03-07
+49,,"Larson Acres, Inc.",Heifer,CS cook 17,"29,168",14.58,2018-03-01
+50,,"Larson Acres, Inc.",Heifer,CS cook 17,"29,168",14.58,2018-03-02
+51,,"Larson Acres, Inc.",Heifer,CS cook 17,"29,168",14.58,2018-03-03
+52,,"Larson Acres, Inc.",Heifer,CS cook 17,"29,168",14.58,2018-03-04
+53,,"Larson Acres, Inc.",Heifer,CS cook 17,"29,168",14.58,2018-03-05
+54,,"Larson Acres, Inc.",Heifer,CS cook 17,"29,168",14.58,2018-03-06
+55,,"Larson Acres, Inc.",Heifer,CS cook 17,"29,168",14.58,2018-03-07
+56,,"Larson Acres, Inc.",Heifer,DryCow Mix 2,893,0.45,2018-03-01
+57,,"Larson Acres, Inc.",Heifer,DryCow Mix 2,893,0.45,2018-03-02
+58,,"Larson Acres, Inc.",Heifer,DryCow Mix 2,893,0.45,2018-03-03
+59,,"Larson Acres, Inc.",Heifer,DryCow Mix 2,893,0.45,2018-03-04
+60,,"Larson Acres, Inc.",Heifer,DryCow Mix 2,893,0.45,2018-03-05
+61,,"Larson Acres, Inc.",Heifer,DryCow Mix 2,893,0.45,2018-03-06
+62,,"Larson Acres, Inc.",Heifer,DryCow Mix 2,893,0.45,2018-03-07
+63,,"Larson Acres, Inc.",Heifer,DrycowGrass1,"26,497",13.25,2018-03-01
+64,,"Larson Acres, Inc.",Heifer,DrycowGrass1,"26,497",13.25,2018-03-02
+65,,"Larson Acres, Inc.",Heifer,DrycowGrass1,"26,497",13.25,2018-03-03
+66,,"Larson Acres, Inc.",Heifer,DrycowGrass1,"26,497",13.25,2018-03-04
+67,,"Larson Acres, Inc.",Heifer,DrycowGrass1,"26,497",13.25,2018-03-05
+68,,"Larson Acres, Inc.",Heifer,DrycowGrass1,"26,497",13.25,2018-03-06
+69,,"Larson Acres, Inc.",Heifer,DrycowGrass1,"26,497",13.25,2018-03-07
+70,,"Larson Acres, Inc.",Heifer,Grass17West,"39,322",19.66,2018-03-01
+71,,"Larson Acres, Inc.",Heifer,Grass17West,"39,322",19.66,2018-03-02
+72,,"Larson Acres, Inc.",Heifer,Grass17West,"39,322",19.66,2018-03-03
+73,,"Larson Acres, Inc.",Heifer,Grass17West,"39,322",19.66,2018-03-04
+74,,"Larson Acres, Inc.",Heifer,Grass17West,"39,322",19.66,2018-03-05
+75,,"Larson Acres, Inc.",Heifer,Grass17West,"39,322",19.66,2018-03-06
+76,,"Larson Acres, Inc.",Heifer,Grass17West,"39,322",19.66,2018-03-07
+77,,"Larson Acres, Inc.",Heifer,Small.Hfr 3,"4,803",2.4,2018-03-01
+78,,"Larson Acres, Inc.",Heifer,Small.Hfr 3,"4,803",2.4,2018-03-02
+79,,"Larson Acres, Inc.",Heifer,Small.Hfr 3,"4,803",2.4,2018-03-03
+80,,"Larson Acres, Inc.",Heifer,Small.Hfr 3,"4,803",2.4,2018-03-04
+81,,"Larson Acres, Inc.",Heifer,Small.Hfr 3,"4,803",2.4,2018-03-05
+82,,"Larson Acres, Inc.",Heifer,Small.Hfr 3,"4,803",2.4,2018-03-06
+83,,"Larson Acres, Inc.",Heifer,Small.Hfr 3,"4,803",2.4,2018-03-07
+84,,"Larson Acres, Inc.",Heifer,Soybnmeal 8,"1,096",0.55,2018-03-01
+85,,"Larson Acres, Inc.",Heifer,Soybnmeal 8,"1,096",0.55,2018-03-02
+86,,"Larson Acres, Inc.",Heifer,Soybnmeal 8,"1,096",0.55,2018-03-03
+87,,"Larson Acres, Inc.",Heifer,Soybnmeal 8,"1,096",0.55,2018-03-04
+88,,"Larson Acres, Inc.",Heifer,Soybnmeal 8,"1,096",0.55,2018-03-05
+89,,"Larson Acres, Inc.",Heifer,Soybnmeal 8,"1,096",0.55,2018-03-06
+90,,"Larson Acres, Inc.",Heifer,Soybnmeal 8,"1,096",0.55,2018-03-07
+91,,"Larson Acres, Inc.",Lactating,1st Haylage 4,"247,832",123.92,2018-03-01
+92,,"Larson Acres, Inc.",Lactating,1st Haylage 4,"247,832",123.92,2018-03-02
+93,,"Larson Acres, Inc.",Lactating,1st Haylage 4,"247,832",123.92,2018-03-03
+94,,"Larson Acres, Inc.",Lactating,1st Haylage 4,"247,832",123.92,2018-03-04
+95,,"Larson Acres, Inc.",Lactating,1st Haylage 4,"247,832",123.92,2018-03-05
+96,,"Larson Acres, Inc.",Lactating,1st Haylage 4,"247,832",123.92,2018-03-06
+97,,"Larson Acres, Inc.",Lactating,1st Haylage 4,"247,832",123.92,2018-03-07
+98,,"Larson Acres, Inc.",Lactating,2ndHay7 2017,"371,998",186,2018-03-01
+99,,"Larson Acres, Inc.",Lactating,2ndHay7 2017,"371,998",186,2018-03-02
+100,,"Larson Acres, Inc.",Lactating,2ndHay7 2017,"371,998",186,2018-03-03
+101,,"Larson Acres, Inc.",Lactating,2ndHay7 2017,"371,998",186,2018-03-04
+102,,"Larson Acres, Inc.",Lactating,2ndHay7 2017,"371,998",186,2018-03-05
+103,,"Larson Acres, Inc.",Lactating,2ndHay7 2017,"371,998",186,2018-03-06
+104,,"Larson Acres, Inc.",Lactating,2ndHay7 2017,"371,998",186,2018-03-07
+105,,"Larson Acres, Inc.",Lactating,Corn Gluten,"105,716",52.86,2018-03-01
+106,,"Larson Acres, Inc.",Lactating,Corn Gluten,"105,716",52.86,2018-03-02
+107,,"Larson Acres, Inc.",Lactating,Corn Gluten,"105,716",52.86,2018-03-03
+108,,"Larson Acres, Inc.",Lactating,Corn Gluten,"105,716",52.86,2018-03-04
+109,,"Larson Acres, Inc.",Lactating,Corn Gluten,"105,716",52.86,2018-03-05
+110,,"Larson Acres, Inc.",Lactating,Corn Gluten,"105,716",52.86,2018-03-06
+111,,"Larson Acres, Inc.",Lactating,Corn Gluten,"105,716",52.86,2018-03-07
+112,,"Larson Acres, Inc.",Lactating,Corn-2017,"176,039",88.02,2018-03-01
+113,,"Larson Acres, Inc.",Lactating,Corn-2017,"176,039",88.02,2018-03-02
+114,,"Larson Acres, Inc.",Lactating,Corn-2017,"176,039",88.02,2018-03-03
+115,,"Larson Acres, Inc.",Lactating,Corn-2017,"176,039",88.02,2018-03-04
+116,,"Larson Acres, Inc.",Lactating,Corn-2017,"176,039",88.02,2018-03-05
+117,,"Larson Acres, Inc.",Lactating,Corn-2017,"176,039",88.02,2018-03-06
+118,,"Larson Acres, Inc.",Lactating,Corn-2017,"176,039",88.02,2018-03-07
+119,,"Larson Acres, Inc.",Lactating,Cornsilage17,"406,619",203.31,2018-03-01
+120,,"Larson Acres, Inc.",Lactating,Cornsilage17,"406,619",203.31,2018-03-02
+121,,"Larson Acres, Inc.",Lactating,Cornsilage17,"406,619",203.31,2018-03-03
+122,,"Larson Acres, Inc.",Lactating,Cornsilage17,"406,619",203.31,2018-03-04
+123,,"Larson Acres, Inc.",Lactating,Cornsilage17,"406,619",203.31,2018-03-05
+124,,"Larson Acres, Inc.",Lactating,Cornsilage17,"406,619",203.31,2018-03-06
+125,,"Larson Acres, Inc.",Lactating,Cornsilage17,"406,619",203.31,2018-03-07
+126,,"Larson Acres, Inc.",Lactating,Crnslge17BMR,"285,764",142.88,2018-03-01
+127,,"Larson Acres, Inc.",Lactating,Crnslge17BMR,"285,764",142.88,2018-03-02
+128,,"Larson Acres, Inc.",Lactating,Crnslge17BMR,"285,764",142.88,2018-03-03
+129,,"Larson Acres, Inc.",Lactating,Crnslge17BMR,"285,764",142.88,2018-03-04
+130,,"Larson Acres, Inc.",Lactating,Crnslge17BMR,"285,764",142.88,2018-03-05
+131,,"Larson Acres, Inc.",Lactating,Crnslge17BMR,"285,764",142.88,2018-03-06
+132,,"Larson Acres, Inc.",Lactating,Crnslge17BMR,"285,764",142.88,2018-03-07
+133,,"Larson Acres, Inc.",Lactating,DCAD Plus,260,0.13,2018-03-01
+134,,"Larson Acres, Inc.",Lactating,DCAD Plus,260,0.13,2018-03-02
+135,,"Larson Acres, Inc.",Lactating,DCAD Plus,260,0.13,2018-03-03
+136,,"Larson Acres, Inc.",Lactating,DCAD Plus,260,0.13,2018-03-04
+137,,"Larson Acres, Inc.",Lactating,DCAD Plus,260,0.13,2018-03-05
+138,,"Larson Acres, Inc.",Lactating,DCAD Plus,260,0.13,2018-03-06
+139,,"Larson Acres, Inc.",Lactating,DCAD Plus,260,0.13,2018-03-07
+140,,"Larson Acres, Inc.",Lactating,Fresh  7,"32,093",16.05,2018-03-01
+141,,"Larson Acres, Inc.",Lactating,Fresh  7,"32,093",16.05,2018-03-02
+142,,"Larson Acres, Inc.",Lactating,Fresh  7,"32,093",16.05,2018-03-03
+143,,"Larson Acres, Inc.",Lactating,Fresh  7,"32,093",16.05,2018-03-04
+144,,"Larson Acres, Inc.",Lactating,Fresh  7,"32,093",16.05,2018-03-05
+145,,"Larson Acres, Inc.",Lactating,Fresh  7,"32,093",16.05,2018-03-06
+146,,"Larson Acres, Inc.",Lactating,Fresh  7,"32,093",16.05,2018-03-07
+147,,"Larson Acres, Inc.",Lactating,Grande-Whey,"181,956",90.98,2018-03-01
+148,,"Larson Acres, Inc.",Lactating,Grande-Whey,"181,956",90.98,2018-03-02
+149,,"Larson Acres, Inc.",Lactating,Grande-Whey,"181,956",90.98,2018-03-03
+150,,"Larson Acres, Inc.",Lactating,Grande-Whey,"181,956",90.98,2018-03-04
+151,,"Larson Acres, Inc.",Lactating,Grande-Whey,"181,956",90.98,2018-03-05
+152,,"Larson Acres, Inc.",Lactating,Grande-Whey,"181,956",90.98,2018-03-06
+153,,"Larson Acres, Inc.",Lactating,Grande-Whey,"181,956",90.98,2018-03-07
+154,,"Larson Acres, Inc.",Lactating,GrassBunker6,"63,596",31.8,2018-03-01
+155,,"Larson Acres, Inc.",Lactating,GrassBunker6,"63,596",31.8,2018-03-02
+156,,"Larson Acres, Inc.",Lactating,GrassBunker6,"63,596",31.8,2018-03-03
+157,,"Larson Acres, Inc.",Lactating,GrassBunker6,"63,596",31.8,2018-03-04
+158,,"Larson Acres, Inc.",Lactating,GrassBunker6,"63,596",31.8,2018-03-05
+159,,"Larson Acres, Inc.",Lactating,GrassBunker6,"63,596",31.8,2018-03-06
+160,,"Larson Acres, Inc.",Lactating,GrassBunker6,"63,596",31.8,2018-03-07
+161,,"Larson Acres, Inc.",Lactating,Low Cow 4,"10,239",5.12,2018-03-01
+162,,"Larson Acres, Inc.",Lactating,Low Cow 4,"10,239",5.12,2018-03-02
+163,,"Larson Acres, Inc.",Lactating,Low Cow 4,"10,239",5.12,2018-03-03
+164,,"Larson Acres, Inc.",Lactating,Low Cow 4,"10,239",5.12,2018-03-04
+165,,"Larson Acres, Inc.",Lactating,Low Cow 4,"10,239",5.12,2018-03-05
+166,,"Larson Acres, Inc.",Lactating,Low Cow 4,"10,239",5.12,2018-03-06
+167,,"Larson Acres, Inc.",Lactating,Low Cow 4,"10,239",5.12,2018-03-07
+168,,"Larson Acres, Inc.",Lactating,MedCow 6,"75,966",37.98,2018-03-01
+169,,"Larson Acres, Inc.",Lactating,MedCow 6,"75,966",37.98,2018-03-02
+170,,"Larson Acres, Inc.",Lactating,MedCow 6,"75,966",37.98,2018-03-03
+171,,"Larson Acres, Inc.",Lactating,MedCow 6,"75,966",37.98,2018-03-04
+172,,"Larson Acres, Inc.",Lactating,MedCow 6,"75,966",37.98,2018-03-05
+173,,"Larson Acres, Inc.",Lactating,MedCow 6,"75,966",37.98,2018-03-06
+174,,"Larson Acres, Inc.",Lactating,MedCow 6,"75,966",37.98,2018-03-07
+175,,"Larson Acres, Inc.",Lactating,Protein 1,"126,427",63.21,2018-03-01
+176,,"Larson Acres, Inc.",Lactating,Protein 1,"126,427",63.21,2018-03-02
+177,,"Larson Acres, Inc.",Lactating,Protein 1,"126,427",63.21,2018-03-03
+178,,"Larson Acres, Inc.",Lactating,Protein 1,"126,427",63.21,2018-03-04
+179,,"Larson Acres, Inc.",Lactating,Protein 1,"126,427",63.21,2018-03-05
+180,,"Larson Acres, Inc.",Lactating,Protein 1,"126,427",63.21,2018-03-06
+181,,"Larson Acres, Inc.",Lactating,Protein 1,"126,427",63.21,2018-03-07
+182,,"Larson Acres, Inc.",Lactating,QLF-Glycerol,"39,482",19.74,2018-03-01
+183,,"Larson Acres, Inc.",Lactating,QLF-Glycerol,"39,482",19.74,2018-03-02
+184,,"Larson Acres, Inc.",Lactating,QLF-Glycerol,"39,482",19.74,2018-03-03
+185,,"Larson Acres, Inc.",Lactating,QLF-Glycerol,"39,482",19.74,2018-03-04
+186,,"Larson Acres, Inc.",Lactating,QLF-Glycerol,"39,482",19.74,2018-03-05
+187,,"Larson Acres, Inc.",Lactating,QLF-Glycerol,"39,482",19.74,2018-03-06
+188,,"Larson Acres, Inc.",Lactating,QLF-Glycerol,"39,482",19.74,2018-03-07
+189,,"Larson Acres, Inc.",Lactating,Refusal,"149,570",74.79,2018-03-01
+190,,"Larson Acres, Inc.",Lactating,Refusal,"149,570",74.79,2018-03-02
+191,,"Larson Acres, Inc.",Lactating,Refusal,"149,570",74.79,2018-03-03
+192,,"Larson Acres, Inc.",Lactating,Refusal,"149,570",74.79,2018-03-04
+193,,"Larson Acres, Inc.",Lactating,Refusal,"149,570",74.79,2018-03-05
+194,,"Larson Acres, Inc.",Lactating,Refusal,"149,570",74.79,2018-03-06
+195,,"Larson Acres, Inc.",Lactating,Refusal,"149,570",74.79,2018-03-07
+196,,"Larson Acres, Inc.",Lactating,Soybnmeal 8,"32,130",16.07,2018-03-01
+197,,"Larson Acres, Inc.",Lactating,Soybnmeal 8,"32,130",16.07,2018-03-02
+198,,"Larson Acres, Inc.",Lactating,Soybnmeal 8,"32,130",16.07,2018-03-03
+199,,"Larson Acres, Inc.",Lactating,Soybnmeal 8,"32,130",16.07,2018-03-04
+200,,"Larson Acres, Inc.",Lactating,Soybnmeal 8,"32,130",16.07,2018-03-05
+201,,"Larson Acres, Inc.",Lactating,Soybnmeal 8,"32,130",16.07,2018-03-06
+202,,"Larson Acres, Inc.",Lactating,Soybnmeal 8,"32,130",16.07,2018-03-07
+203,,"Larson Acres, Inc.",Prefresh,1st Haylage 4,"99,091",49.55,2018-03-01
+204,,"Larson Acres, Inc.",Prefresh,1st Haylage 4,"99,091",49.55,2018-03-02
+205,,"Larson Acres, Inc.",Prefresh,1st Haylage 4,"99,091",49.55,2018-03-03
+206,,"Larson Acres, Inc.",Prefresh,1st Haylage 4,"99,091",49.55,2018-03-04
+207,,"Larson Acres, Inc.",Prefresh,1st Haylage 4,"99,091",49.55,2018-03-05
+208,,"Larson Acres, Inc.",Prefresh,1st Haylage 4,"99,091",49.55,2018-03-06
+209,,"Larson Acres, Inc.",Prefresh,1st Haylage 4,"99,091",49.55,2018-03-07
+210,,"Larson Acres, Inc.",Prefresh,Calcium Chlo,343,0.17,2018-03-01
+211,,"Larson Acres, Inc.",Prefresh,Calcium Chlo,343,0.17,2018-03-02
+212,,"Larson Acres, Inc.",Prefresh,Calcium Chlo,343,0.17,2018-03-03
+213,,"Larson Acres, Inc.",Prefresh,Calcium Chlo,343,0.17,2018-03-04
+214,,"Larson Acres, Inc.",Prefresh,Calcium Chlo,343,0.17,2018-03-05
+215,,"Larson Acres, Inc.",Prefresh,Calcium Chlo,343,0.17,2018-03-06
+216,,"Larson Acres, Inc.",Prefresh,Calcium Chlo,343,0.17,2018-03-07
+217,,"Larson Acres, Inc.",Prefresh,Cornsilage17,"23,434",11.72,2018-03-01
+218,,"Larson Acres, Inc.",Prefresh,Cornsilage17,"23,434",11.72,2018-03-02
+219,,"Larson Acres, Inc.",Prefresh,Cornsilage17,"23,434",11.72,2018-03-03
+220,,"Larson Acres, Inc.",Prefresh,Cornsilage17,"23,434",11.72,2018-03-04
+221,,"Larson Acres, Inc.",Prefresh,Cornsilage17,"23,434",11.72,2018-03-05
+222,,"Larson Acres, Inc.",Prefresh,Cornsilage17,"23,434",11.72,2018-03-06
+223,,"Larson Acres, Inc.",Prefresh,Cornsilage17,"23,434",11.72,2018-03-07
+224,,"Larson Acres, Inc.",Prefresh,Crnslge17BMR,"57,159",28.58,2018-03-01
+225,,"Larson Acres, Inc.",Prefresh,Crnslge17BMR,"57,159",28.58,2018-03-02
+226,,"Larson Acres, Inc.",Prefresh,Crnslge17BMR,"57,159",28.58,2018-03-03
+227,,"Larson Acres, Inc.",Prefresh,Crnslge17BMR,"57,159",28.58,2018-03-04
+228,,"Larson Acres, Inc.",Prefresh,Crnslge17BMR,"57,159",28.58,2018-03-05
+229,,"Larson Acres, Inc.",Prefresh,Crnslge17BMR,"57,159",28.58,2018-03-06
+230,,"Larson Acres, Inc.",Prefresh,Crnslge17BMR,"57,159",28.58,2018-03-07
+231,,"Larson Acres, Inc.",Prefresh,DryCow Mix 2,939,0.47,2018-03-01
+232,,"Larson Acres, Inc.",Prefresh,DryCow Mix 2,939,0.47,2018-03-02
+233,,"Larson Acres, Inc.",Prefresh,DryCow Mix 2,939,0.47,2018-03-03
+234,,"Larson Acres, Inc.",Prefresh,DryCow Mix 2,939,0.47,2018-03-04
+235,,"Larson Acres, Inc.",Prefresh,DryCow Mix 2,939,0.47,2018-03-05
+236,,"Larson Acres, Inc.",Prefresh,DryCow Mix 2,939,0.47,2018-03-06
+237,,"Larson Acres, Inc.",Prefresh,DryCow Mix 2,939,0.47,2018-03-07
+238,,"Larson Acres, Inc.",Prefresh,PF Cow  5,"5,515",2.76,2018-03-01
+239,,"Larson Acres, Inc.",Prefresh,PF Cow  5,"5,515",2.76,2018-03-02
+240,,"Larson Acres, Inc.",Prefresh,PF Cow  5,"5,515",2.76,2018-03-03
+241,,"Larson Acres, Inc.",Prefresh,PF Cow  5,"5,515",2.76,2018-03-04
+242,,"Larson Acres, Inc.",Prefresh,PF Cow  5,"5,515",2.76,2018-03-05
+243,,"Larson Acres, Inc.",Prefresh,PF Cow  5,"5,515",2.76,2018-03-06
+244,,"Larson Acres, Inc.",Prefresh,PF Cow  5,"5,515",2.76,2018-03-07
+245,,"Larson Acres, Inc.",Prefresh,PrefreshHFR,"1,630",0.81,2018-03-01
+246,,"Larson Acres, Inc.",Prefresh,PrefreshHFR,"1,630",0.81,2018-03-02
+247,,"Larson Acres, Inc.",Prefresh,PrefreshHFR,"1,630",0.81,2018-03-03
+248,,"Larson Acres, Inc.",Prefresh,PrefreshHFR,"1,630",0.81,2018-03-04
+249,,"Larson Acres, Inc.",Prefresh,PrefreshHFR,"1,630",0.81,2018-03-05
+250,,"Larson Acres, Inc.",Prefresh,PrefreshHFR,"1,630",0.81,2018-03-06
+251,,"Larson Acres, Inc.",Prefresh,PrefreshHFR,"1,630",0.81,2018-03-07
+252,,"Larson Acres, Inc.",Prefresh,Soybnmeal 8,"1,593",0.8,2018-03-01
+253,,"Larson Acres, Inc.",Prefresh,Soybnmeal 8,"1,593",0.8,2018-03-02
+254,,"Larson Acres, Inc.",Prefresh,Soybnmeal 8,"1,593",0.8,2018-03-03
+255,,"Larson Acres, Inc.",Prefresh,Soybnmeal 8,"1,593",0.8,2018-03-04
+256,,"Larson Acres, Inc.",Prefresh,Soybnmeal 8,"1,593",0.8,2018-03-05
+257,,"Larson Acres, Inc.",Prefresh,Soybnmeal 8,"1,593",0.8,2018-03-06
+258,,"Larson Acres, Inc.",Prefresh,Soybnmeal 8,"1,593",0.8,2018-03-07
+259,,"Larson Acres, Inc.",Prefresh,straw,"8,909",4.45,2018-03-01
+260,,"Larson Acres, Inc.",Prefresh,straw,"8,909",4.45,2018-03-02
+261,,"Larson Acres, Inc.",Prefresh,straw,"8,909",4.45,2018-03-03
+262,,"Larson Acres, Inc.",Prefresh,straw,"8,909",4.45,2018-03-04
+263,,"Larson Acres, Inc.",Prefresh,straw,"8,909",4.45,2018-03-05
+264,,"Larson Acres, Inc.",Prefresh,straw,"8,909",4.45,2018-03-06
+265,,"Larson Acres, Inc.",Prefresh,straw,"8,909",4.45,2018-03-07
