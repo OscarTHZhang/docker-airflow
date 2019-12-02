@@ -1,0 +1,5 @@
+Short python script to take output files produced from the dairy comp 305 software program which contain farm event data and process them in a way that concatenates comma-separated entries to the remarks field, strips leading and trailing whitespaces from all fields, removes a seemingly useless empty last column, and outputs the data in a new csv with the same name as the original, but appended w/ '_fixed'. 
+
+Note that this script is currently hardcoded that the remarks column exists as the 9th column in the input file - any other use will require slight modification.
+
+This was constructed using python 2.7 and has a basic commandline interface which can be used to specify one or more input files, along with a verbosity level.
