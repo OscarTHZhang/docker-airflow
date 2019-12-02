@@ -12,6 +12,9 @@ APIs. See the illustration below: <br />
 ![alt text](flowchart.png "Architecture")
  
 ## Usage
+Volume mapping:
+The airflow dagbag is inside ```/usr/airflow``` in the docker container. Before running the server, first map the dag directory in this project to the dagbag inside docker container; also remember to map plugins and test directries to the corresponding directories in the container
+
 To build from Dockerfile:
 ```bash
 docker build -t <$tag>:<$label> .
