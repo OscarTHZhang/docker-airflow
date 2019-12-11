@@ -47,6 +47,21 @@ By inspecting the database dump, the following mappings can be used for finding 
 * tmrtracker, feedwatch -> feed_data_ingest.py	
 * agsource - > agsource_data_ingest.py
 
+## Directory Structure
+Expected file structure
+```bash
+{farm_name}/{data_type}/{yyyy-mm-dd}/*.csv
+```
+Note that only *.csv files will be considered in the end
+toplevel <br>
+* arlington/ -> agsource/, dairycomp/ -> {dates}/ -> .csv files
+* haag/ -> (random structure, need to standarized, not my job)
+* larson/ -> dairycomp/, extracts/, feedwatch/, grande/, smart_dairy/, smart_dairy2/ -> {dates}/ -> .csv files
+* mystic_valley/ -> dairycomp/, grande/, tmrtracker/ -> {dates}/ -> .csv files
+* uw-arlington/ -> feedsupervisor/ -> {dates}/ -> .csv files
+
+
+
 ## Todo
 Connect to the ingest csv file portal and AgDH database to test and imoprove the 
 dag functionality.
