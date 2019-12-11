@@ -41,6 +41,13 @@ docker exec -it <container name> /bin/sh
 $cd test
 ```
 
+## Data-Script Mapping
+By inspecting the database dump, the following mappings can be used for finding the correct script for given .csv data
+* dairycomp -> event_data_ingest.py
+* tmrtracker, feedwatch -> feed_data_ingest.py	
+* agsource - > agsource_data_ingest.py
+
 ## Todo
 Connect to the ingest csv file portal and AgDH database to test and imoprove the 
 dag functionality.
+

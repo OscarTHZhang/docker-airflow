@@ -21,7 +21,7 @@ services:
             - ./test:/usr/local/airflow/test
             # Uncomment to include custom plugins
             - ./plugins:/usr/local/airflow/plugins
-            # - ./ingest_scripts:/usr/local/ariflow/ingest_scripts
+            - ./ingest_scripts:/usr/local/ariflow/ingest_scripts
         ports:
             - "8080:8080"
         command: webserver
