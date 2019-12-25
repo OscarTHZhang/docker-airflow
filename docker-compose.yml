@@ -24,6 +24,7 @@ services:
             - ./ingest_scripts:/usr/local/ariflow/ingest_scripts
         ports:
             - "8080:8080"
+            # - "5432:5432"
         command: webserver
         healthcheck:
             test: ["CMD-SHELL", "[ -f /usr/local/airflow/airflow-webserver.pid ]"]

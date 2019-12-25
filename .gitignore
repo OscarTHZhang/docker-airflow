@@ -1,5 +1,6 @@
 .idea/
 .vscode/
+.test/
 
 ### Vim ###
 [._]*.s[a-w][a-z]

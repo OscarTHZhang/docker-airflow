@@ -6,7 +6,6 @@ from airflow.operators.dummy_operator import DummyOperator
 from airflow.utils.trigger_rule import TriggerRule
 
 from operators.my_operators import StartOperator, DirectorySensor, ScriptParser
-from operators.test_plugin import TestOperator
 
 dag = DAG('my_operator_tester_dag',
           description="'Testing custom operators",

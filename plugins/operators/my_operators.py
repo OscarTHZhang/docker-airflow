@@ -11,7 +11,6 @@ from operators import feedwatch_parser
 log = logging.getLogger(__name__)
 
 
-
 class StartOperator(BaseOperator):
     """
     StartOperator is the starting of this sensing dag.
@@ -29,36 +28,40 @@ class StartOperator(BaseOperator):
         :return:
         """
         records = []
-        try:
-            connection = psycopg2.connect(
-                user="dairybrain",
-                password="****",
-                host="127.0.0.1",
-                port="5432",
-                database="farms"
-            )
-            cursor = connection.cursor()
-            query = "SELECT * FROM farm_datasource;"
-            cursor.execute(query)
-            print("Executed")
-            records = cursor.fetchall()
-            # example: [ (2, 1, 1, None, '/mnt/nfs/dairy/larson/dairycomp/', 'event', 'event_data_ingest.py', None,
-            # True), (4, 2, 1, '', '/mnt/nfs/dairy/wangen/dairycomp/', 'event', 'event_data_ingest.py', '', False),
-            # (6, 3, None, None, '/mnt/nfs/dairy/mystic_valley/tmrtracker/', 'feed', 'feed_data_ingest.py', '',
-            # True), (5, 3, None, None, '/mnt/nfs/dairy/mystic_valley/dairycomp/', 'event', 'event_data_ingest.py',
-            # '', True), (3, 1, 1, None,
-            # '/Users/stevewangen/projects/cows_20_20/data_ingest/file_monitor/test/feedwatch', 'feed',
-            # 'feed_data_ingest.py', None, True), (7, 6, None, None, '/mnt/nfs/dairy/arlington/agsource', 'agsource',
-            #  'agsource_data_ingest.py', None, True)]
-            records = StartOperator.normalize(records)
-        except (Exception, psycopg2.Error) as err:
-            log.error(err)
-            raise Exception('There is error in the connection/query with database')
-        finally:
-            log.info("Hello World!")
-            log.info("Starting the StartOperator <{}>".format(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")))
-            task_instance = context['task_instance']
-            task_instance.xcom_push('records', records)  # put records list into the task instance to be fetched
+        # try:
+        #     connection = psycopg2.connect(
+        #         user="dairybrain",
+        #         password="****",
+        #         host="127.0.0.1",
+        #         port="5432",
+        #         database="farms"
+        #     )
+        #     cursor = connection.cursor()
+        #     query = "SELECT * FROM farm_datasource;"
+        #     cursor.execute(query)
+        #     print("Executed")
+        #     records = cursor.fetchall()
+        #     # example: [ (2, 1, 1, None, '/mnt/nfs/dairy/larson/dairycomp/', 'event', 'event_data_ingest.py', None,
+        #     # True), (4, 2, 1, '', '/mnt/nfs/dairy/wangen/dairycomp/', 'event', 'event_data_ingest.py', '', False),
+        #     # (6, 3, None, None, '/mnt/nfs/dairy/mystic_valley/tmrtracker/', 'feed', 'feed_data_ingest.py', '',
+        #     # True), (5, 3, None, None, '/mnt/nfs/dairy/mystic_valley/dairycomp/', 'event', 'event_data_ingest.py',
+        #     # '', True), (3, 1, 1, None,
+        #     # '/Users/stevewangen/projects/cows_20_20/data_ingest/file_monitor/test/dairycomp', 'feed',
+        #     # 'feed_data_ingest.py', None, True), (7, 6, None, None, '/mnt/nfs/dairy/arlington/agsource', 'agsource',
+        #     #  'agsource_data_ingest.py', None, True)]
+        #     records = StartOperator.normalize(records)
+        # except (Exception, psycopg2.Error) as err:
+        #     log.error(err)
+        #     raise Exception('There is error in the connection/query with database')
+        # finally:
+        #     log.info("Hello World!")
+        #     log.info("Starting the StartOperator <{}>".format(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")))
+        #     task_instance = context['task_instance']
+        #     task_instance.xcom_push('records', records)  # put records list into the task instance to be fetched
+        log.info("Hello World!")
+        log.info("Starting the StartOperator <{}>".format(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")))
+        task_instance = context['task_instance']
+        task_instance.xcom_push('records', [])  # put records list into the task instance to be fetched
 
     @staticmethod
     def normalize(records):

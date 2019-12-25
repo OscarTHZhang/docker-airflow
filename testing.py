@@ -1,29 +1,18 @@
-#
-# from plugins.operators import feedwatch_parser
-#
-# feedwatch_parser.parse_file(test=True,
-#                             farm_id=123,
-#                             filename='test/test_input.csv',
-#                             db_engine=None)
-import psycopg2
+# import os
 
-try:
-    connection = psycopg2.connect(
-        user="postgres",
-        password="****",
-        host="127.0.0.1",
-        port="***",
-    )
-    cursor = connection.cursor()
-    query = "SELECT * FROM farm_datasource;"
-    cursor.execute(query)
-    print("Executed")
-    records = cursor.fetchall()
-    print(records)
-    '''
-    row () () () ()
-    reference
-    (<id>, <farm_id>, <software_id>, <software_version>, <file_location>, <datasource_type>, <script_name>, <script_arguments>, <active>)
-    '''
-except (Exception, psycopg2.Error) as err:
-    print(err)
+
+# def walking(directory):
+#     """
+#     Walking through the directory and retrieve sub-directory with dates
+#     :param directory: some directory with /test/larson/feedwatch
+#     :return: a list of absolute directories with dates
+#     """
+#     res = []
+#     for dirs in os.listdir(directory):
+#         res.append(os.path.join(directory, dirs))
+#     return res
+#
+#
+# walking('./test/larson/feedwatch')
+
+a = float(b'1,062.93'.decode('UTF-8').replace(',',''))

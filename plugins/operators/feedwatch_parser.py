@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-""" Parsing and importing dry matter intake files from feedwatch software
+""" Parsing and importing dry matter intake files from dairycomp software
     into a database or csv """
 
 import pandas as pd
@@ -176,7 +176,7 @@ def import_cost_from_file(input_df, farm_id):
         elif first_col.strip() == 'Pen':
             parsing_costs = True
 
-        # finish when hitting feedwatch version message signaling
+        # finish when hitting dairycomp version message signaling
         elif str(first_col).startswith('FeedWatch'):
             return write_df
 
@@ -220,7 +220,7 @@ def create_cost_table(db_engine):
                 logger.debug('create_cost_table statement = ' + str(create_cost_table_statement))
                 con.execute(create_cost_table_statement)
             except Exception as e:
-                logger.error("Error creating the feedwatch cost table in database!")
+                logger.error("Error creating the dairycomp cost table in database!")
                 logger.error(e.message)
                 exit(1)
 
@@ -370,7 +370,7 @@ def import_dmi_from_file(input_df, farm_id):
             if last_was_totals:
                 return write_df
 
-        # stop parsing when 'Grand totals' encountered - should be obsolete w/ blank line check (assuming that is consistent formatting from feedwatch)
+        # stop parsing when 'Grand totals' encountered - should be obsolete w/ blank line check (assuming that is consistent formatting from dairycomp)
         elif str(first_col).rstrip() == 'Grand Totals:':
             logging.debug('hit grand totals')
             return write_df
@@ -845,5 +845,6 @@ def get_dollar_value(str_value):
     if (str_value.lstrip() == '-'):
         return None
     else:
-        value = float(str_value[1:].encode('ascii'))
+        value = float(str_value[1:].encode('ascii').decode('UTF-8').replace(',', ''))
+        # in case for 1,200.58
         return value
