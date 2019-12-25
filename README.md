@@ -40,6 +40,11 @@ docker exec -it <container name> /bin/sh
 # check the result in the volumed test directory in the container
 $cd test
 ```
+Sample file directory:
+```bash
+.test/
+```
+This directory contains a subset of existing files from the smb remote drive on the WID server
 
 ## Data-Script Mapping
 By inspecting the database dump, the following mappings can be used for finding the correct script for given .csv data
@@ -61,8 +66,4 @@ toplevel <br>
 * uw-arlington/ -> feedsupervisor/ -> {dates}/ -> .csv files
 
 
-
-## Todo
-Connect to the ingest csv file portal and AgDH database to test and imoprove the 
-dag functionality.
 
