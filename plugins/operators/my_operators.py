@@ -1,14 +1,15 @@
-import logging
 import datetime
+import logging
 import os
 
+import psycopg2
 from airflow.models import BaseOperator
 from airflow.plugins_manager import AirflowPlugin
 from airflow.utils.decorators import apply_defaults
-
 from operators import feedwatch_parser
 
 log = logging.getLogger(__name__)
+
 
 
 class StartOperator(BaseOperator):
@@ -27,11 +28,61 @@ class StartOperator(BaseOperator):
         :param context:
         :return:
         """
-        log.info("Hello World!")
-        log.info("Starting the StartOperator <{}>".format(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")))
-        task_instance = context['task_instance']
-        sensor_minute = task_instance.xcom_pull('my_file_sensor_task', key='sensed_file_path')
-        log.info('Valid minute as determined by sensor: {}'.format(sensor_minute))
+        records = []
+        try:
+            connection = psycopg2.connect(
+                user="dairybrain",
+                password="****",
+                host="127.0.0.1",
+                port="5432",
+                database="farms"
+            )
+            cursor = connection.cursor()
+            query = "SELECT * FROM farm_datasource;"
+            cursor.execute(query)
+            print("Executed")
+            records = cursor.fetchall()
+            # example: [ (2, 1, 1, None, '/mnt/nfs/dairy/larson/dairycomp/', 'event', 'event_data_ingest.py', None,
+            # True), (4, 2, 1, '', '/mnt/nfs/dairy/wangen/dairycomp/', 'event', 'event_data_ingest.py', '', False),
+            # (6, 3, None, None, '/mnt/nfs/dairy/mystic_valley/tmrtracker/', 'feed', 'feed_data_ingest.py', '',
+            # True), (5, 3, None, None, '/mnt/nfs/dairy/mystic_valley/dairycomp/', 'event', 'event_data_ingest.py',
+            # '', True), (3, 1, 1, None,
+            # '/Users/stevewangen/projects/cows_20_20/data_ingest/file_monitor/test/feedwatch', 'feed',
+            # 'feed_data_ingest.py', None, True), (7, 6, None, None, '/mnt/nfs/dairy/arlington/agsource', 'agsource',
+            #  'agsource_data_ingest.py', None, True)]
+            records = StartOperator.normalize(records)
+        except (Exception, psycopg2.Error) as err:
+            log.error(err)
+            raise Exception('There is error in the connection/query with database')
+        finally:
+            log.info("Hello World!")
+            log.info("Starting the StartOperator <{}>".format(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")))
+            task_instance = context['task_instance']
+            task_instance.xcom_push('records', records)  # put records list into the task instance to be fetched
+
+    @staticmethod
+    def normalize(records):
+        """
+        Normalize the records into a list of dictionaries
+            (<id>, <farm_id>, <software_id>, <software_version>, <file_location>, <datasource_type>, <script_name>,
+            <script_arguments>, <active>)
+        :param records: the records fetched from database
+        :return: a list of dictionaries containing different entries querid from database
+        """
+        normalized_records = []
+        for t in records:
+            temp = dict()
+            temp['id'] = t[0]
+            temp['farm_id'] = t[1]
+            temp['software_id'] = t[2]
+            temp['software_version'] = t[3]
+            temp['file_location'] = t[4]
+            temp['datasource_type'] = t[5]
+            temp['script_name'] = t[6]
+            temp['script_arguments'] = t[7]
+            temp['active'] = t[8]
+            normalized_records.append(temp)
+        return normalized_records
 
 
 class DirectorySensor(BaseOperator):
