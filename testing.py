@@ -1,18 +1,6 @@
-# import os
+import os
 
+path = '/usr/local/airflow/test/larson/feedwatch'
 
-# def walking(directory):
-#     """
-#     Walking through the directory and retrieve sub-directory with dates
-#     :param directory: some directory with /test/larson/feedwatch
-#     :return: a list of absolute directories with dates
-#     """
-#     res = []
-#     for dirs in os.listdir(directory):
-#         res.append(os.path.join(directory, dirs))
-#     return res
-#
-#
-# walking('./test/larson/feedwatch')
+print(os.path.join(path.split('/')[-2:][0], path.split('/')[-2:][1]))
 
-a = float(b'1,062.93'.decode('UTF-8').replace(',',''))
