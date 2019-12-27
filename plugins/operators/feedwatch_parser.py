@@ -435,7 +435,6 @@ def create_dmi_table(db_engine):
                 logger.error(e)
                 exit(1)
 
-
 def create_temp_dmi_table(db_engine, uuid_str):
     table_name = "temp_dmi_" + uuid_str
 
@@ -551,7 +550,7 @@ def merge_dmi_table(db_engine, uuid_str):
             logging.debug('merge_dmi_table statement = ' + str(merge_temp_table_statement))
         except Exception as e:
             logging.error("Error merging the temp_dmi table to the feedwatch_dmi_data table!")
-            logger.error(e.message, e.args)
+            logger.error(e, e.args)
             exit(1)
 
 
@@ -567,7 +566,7 @@ def delete_temp_dmi_table(db_engine, uuid_str):
             logging.debug('delete_temp_table_statement statement = ' + str(delete_temp_table_statement))
         except Exception as e:
             logging.error("Error deleting the temp_dmi table from database!")
-            logger.error(e.message, e.args)
+            logger.error(e, e.args)
             exit(1)
 
 

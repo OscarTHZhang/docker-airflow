@@ -32,19 +32,7 @@ starter_task = StartOperator(
     dag=dag
 )
 
-# sensor_task = DirectorySensor(
-#     directory="/usr/local/airflow/test/larson/feedwatch",
-#     task_id="directory_sensor",
-#     dag=dag
-# )
-
 separator_task = DummyOperator(task_id='separate_date_files', dag=dag)
-
-# parser_task = ScriptParser(
-#     directory="/usr/local/airflow/test/larson/feedwatch",
-#     task_id="script_parser",
-#     dag=dag
-# )
 
 finish_task = DummyOperator(
     task_id="finish_task",

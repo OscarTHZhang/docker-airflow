@@ -4,7 +4,6 @@ software into a database or file
 """
 import sys
 import os.path
-import argparse
 import logging
 import tarfile
 import uuid
@@ -55,14 +54,10 @@ def get_db_engine(db_log):
         logger.error("Port not specified in config file!")
 
     # database
-    # if db_name is None:
     if 'db_database' in dir(config):
         database = config.db_database
     else:
         logger.error("Database not specified in config file!")
-    # else:
-    #     database = db_name
-
     try:
         db_engine = create_engine(dialect + '://' + user + ':' + password + '@' + host + ':' + port + '/' + database,
                                   echo=db_log)
@@ -74,55 +69,12 @@ def get_db_engine(db_log):
     return db_engine
 
 
-# def parse_args():
-#     parser = argparse.ArgumentParser(description='Read data files from feed software.')
-#
-#     parser.add_argument('filename', metavar='filename', type=str, nargs=1,
-#                         help='name of file (or directory) to be processed')
-#     parser.add_argument('-t', '--TEST', action='store_true',
-#                         help='Run the program and output results to test_output.csv in the local folder. If '
-#                              + 'no input file is specified, will look to use a test_input.csv file located in '
-#                              + 'the local directory.')
-#     parser.add_argument('-d', '--db_log', action='store_true',
-#                         help='Turn on debug logging for the database communication (sqlalchemy).')
-#     parser.add_argument('-i', '--farm_id', nargs='?', const=None, default=None,
-#                         help='Unique id of the farm from which the feed data is derived')
-#     parser.add_argument("-v", "--verbose", const=1, default=0, type=int, nargs="?",
-#                         help="increase verbosity: 0 = only warnings, 1 = info, 2 = debug. No number means info. Default is no verbosity.")
-#     parser.add_argument("-c", "--database-connection", type=str, nargs=1,
-#                         help="specify the name of the database to be written to (overrides the config.py file)")
-#
-#     args = parser.parse_args()
-#     main(args)
-
-
 def data_ingest(file_directory, is_testing, farm_id, db_log=True):
-    # set logging level
-    # if args.verbose == 0:
-    #     log_level = logging.WARN
-    # elif args.verbose == 1:
-    #     log_level = logging.INFO
-    # elif args.verbose == 2:
-    #     log_level = logging.DEBUG
-    # logging.basicConfig(level=log_level,
-    #                     format='%(asctime)s %(levelname)s %(message)s')
-    #
-    # logging.debug('args = ' + str(args))
-
     # set farm id
     if farm_id is None:
         logging.error("Farm id not specified!")
         exit(1)
 
-    # # test mode
-    # if args.TEST:
-    #     logging.info('Running in test mode - output local csv');
-    # if len(args.filename) == 0:
-    #     logging.info('No filenames specified - using local test_input.csv')
-    #     args.filename = ["test_input.csv"]
-
-    # parse files
-    # create db engine, pass db_logging boolean
     db_engine = None
     if not is_testing:
         db_engine = get_db_engine(db_log)
@@ -171,7 +123,3 @@ def data_ingest(file_directory, is_testing, farm_id, db_log=True):
                 feedwatch_parser.parse_file(is_testing, farm_id, filename, db_engine)
         else:
             logging.error('File ' + filename + ' not found!')
-
-
-# if __name__ == "__main__":
-#     parse_args()
