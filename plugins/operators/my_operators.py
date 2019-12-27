@@ -7,6 +7,7 @@ from airflow.models import BaseOperator
 from airflow.plugins_manager import AirflowPlugin
 from airflow.utils.decorators import apply_defaults
 from operators import feedwatch_parser
+from operators import  feed_data_ingest
 
 log = logging.getLogger(__name__)
 
@@ -39,7 +40,7 @@ class StartOperator(BaseOperator):
             cursor = connection.cursor()
             query = "SELECT * FROM farm_datasource;"
             cursor.execute(query)
-            print("Executed")
+            # print("Executed")
             records = cursor.fetchall()
             # example: [ (2, 1, 1, None, '/mnt/nfs/dairy/larson/dairycomp/', 'event', 'event_data_ingest.py', None,
             # True), (4, 2, 1, '', '/mnt/nfs/dairy/wangen/dairycomp/', 'event', 'event_data_ingest.py', '', False),
@@ -121,11 +122,16 @@ class ScriptParser(BaseOperator):
         log.info("Initiate ScriptParser Operator")
         log.info("Parsing file in {}".format(self.directory))
         script_map = context['task_instance'].xcom_pull(key='records')  # pull out script mapping
+        log.info(str(script_map))
         script = ''
         farm_id = -1
+        log.info(str(script_map))
         for mapping in script_map:
             path = mapping['file_location']
-            if path == os.path.join(self.directory.split('/')[-2:][0], self.directory.split('/')[-2:][1]):
+            log.info(path)
+            log.info(os.path.join(self.directory.split('/')[-3:-1][0], self.directory.split('/')[-3:-1][1]))
+            if path == os.path.join(self.directory.split('/')[-3:-1][0], self.directory.split('/')[-3:-1][1]):
+                logging.info(str(mapping))
                 farm_id = mapping['farm_id']
                 script = mapping['script_name']
         files = context['task_instance'].xcom_pull(key='file_list')
@@ -138,7 +144,7 @@ class ScriptParser(BaseOperator):
         # apply parsing script
         if script == 'feed_data_ingest.py':
             for f in files:
-                feedwatch_parser.parse_file(test=False, farm_id=farm_id, filename=f, db_engine=None)
+                feed_data_ingest.data_ingest(file_directory=f, is_testing=False, farm_id=farm_id, db_log=True)
 
         task_instance = context['task_instance']
         task_instance.xcom_push('parsing_object', self.directory)

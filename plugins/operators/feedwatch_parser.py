@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """ Parsing and importing dry matter intake files from dairycomp software
     into a database or csv """
 
@@ -9,9 +8,9 @@ import uuid
 import os
 from sqlalchemy.sql import text
 
-__author__ = "Steven Wangen"
-__version__ = "1.0.1"
-__email__ = "srwangen@wisc.edu"
+__author__ = "Oscar Zhang; Steven Wangen"
+__version__ = "1.0.2"
+__email__ = "tzhang383@wisc.edu; srwangen@wisc.edu"
 __status__ = "Development"
 
 logger = logging.getLogger(__name__)
@@ -369,8 +368,8 @@ def import_dmi_from_file(input_df, farm_id):
         elif not str(first_col).rstrip():
             if last_was_totals:
                 return write_df
-
-        # stop parsing when 'Grand totals' encountered - should be obsolete w/ blank line check (assuming that is consistent formatting from dairycomp)
+        # stop parsing when 'Grand totals' encountered - should be obsolete w/ blank line check (assuming that is
+        # consistent formatting from dairycomp)
         elif str(first_col).rstrip() == 'Grand Totals:':
             logging.debug('hit grand totals')
             return write_df
@@ -433,7 +432,7 @@ def create_dmi_table(db_engine):
                 con.execute(create_dmi_table_statement)
             except Exception as e:
                 logger.error("Error creating the feedwatch_dmi_table in database!")
-                logger.error(e.message)
+                logger.error(e)
                 exit(1)
 
 
@@ -470,7 +469,7 @@ def create_temp_dmi_table(db_engine, uuid_str):
             con.execute(create_temp_table_statement)
         except Exception as e:
             logger.error("Error creating the temp_dmi table from database!")
-            logger.error(e.message)
+            logger.error(e)
             exit(1)
 
 
@@ -484,7 +483,7 @@ def append_dmi_row(farm_id, company_name, pen_name, row, write_df):
                    get_a_float(row[1][8])]
     except Exception as e:
         logging.error("feedwatch_parser.append_dmi_row() - exception raised!")
-        logger.error(e.message, e.args)
+        logger.error(e, e.args)
     logging.debug('appending new dmi row: ' + str(new_row))
     # append the data to the dataframe in the last position
     write_df.loc[len(write_df)] = new_row
@@ -516,7 +515,7 @@ def write_dmi_to_temp(dmi_df, db_engine, uuid_str):
                 logger.debug('insert to temp_dmi statement = ' + str(insert_statement))
             except Exception as e:
                 logger.error("feedwatch_parser.py - write_dmi_to_temp(): Error inserting to temp_dmi table!")
-                logger.error(e.message, e.args)
+                logger.error(e, e.args)
                 exit(1)
 
 
