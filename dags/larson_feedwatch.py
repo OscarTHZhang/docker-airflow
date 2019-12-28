@@ -1,3 +1,8 @@
+"""
+This is the dag file for larson/feedwatch data. Trigger 'larson_feedwatch' DAG in the Airflow web server will
+start the data pipeline for larson/feedwatch
+"""
+
 import os
 from datetime import datetime
 
@@ -5,6 +10,11 @@ from airflow import DAG
 from airflow.operators.dummy_operator import DummyOperator
 from airflow.utils.trigger_rule import TriggerRule
 from operators.my_operators import StartOperator, DirectorySensor, ScriptParser
+
+__author__ = 'Oscar Zhang'
+__email__ = 'tzhang383@wisc.edu'
+__version__ = '0.1'
+__status__ = 'Development'
 
 
 def walking(directory):

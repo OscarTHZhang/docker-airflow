@@ -1,4 +1,11 @@
-# This is the configuration of Oscar's local database using Mac OSX 10.12.6
+"""
+This is the configuration of Oscar's local database using Mac OSX 10.12.6
+
+__author__ = "Oscar Zhang"
+__email__ = "tzhang383@wisc.edu"
+__version__ = '0.1'
+__status__ = 'Development'
+"""
 
 db_password = "1234567890"
 db_user = "dairybrain"

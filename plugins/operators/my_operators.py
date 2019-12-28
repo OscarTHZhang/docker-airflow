@@ -1,3 +1,13 @@
+"""
+This file consists of a class of self-defined Airflow operators, and they will be used in all the data
+pipelines of dairy data
+
+__author__ = "Oscar Zhang"
+__email__ = "tzhang383@wisc.edu"
+__version__ = '0.1'
+__status__ = 'Development'
+"""
+
 import datetime
 import logging
 import os
@@ -6,8 +16,9 @@ import psycopg2
 from airflow.models import BaseOperator
 from airflow.plugins_manager import AirflowPlugin
 from airflow.utils.decorators import apply_defaults
-from operators import feedwatch_parser
+from operators import config
 from operators import  feed_data_ingest
+
 
 log = logging.getLogger(__name__)
 
@@ -31,16 +42,15 @@ class StartOperator(BaseOperator):
         records = []
         try:
             connection = psycopg2.connect(
-                dbname="farms",
-                user="dairybrain",
-                password="1234567890",
-                host="host.docker.internal",
-                port="5433",
+                dbname=config.db_database,
+                user=config.db_user,
+                password=config.db_password,
+                host=config.db_host,
+                port=config.db_port,
             )
             cursor = connection.cursor()
             query = "SELECT * FROM farm_datasource;"
             cursor.execute(query)
-            # print("Executed")
             records = cursor.fetchall()
             # example: [ (2, 1, 1, None, '/mnt/nfs/dairy/larson/dairycomp/', 'event', 'event_data_ingest.py', None,
             # True), (4, 2, 1, '', '/mnt/nfs/dairy/wangen/dairycomp/', 'event', 'event_data_ingest.py', '', False),

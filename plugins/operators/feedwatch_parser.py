@@ -1,5 +1,6 @@
-""" Parsing and importing dry matter intake files from dairycomp software
-    into a database or csv """
+"""
+Parsing and importing dry matter intake files from dairycomp software into a database or csv
+"""
 
 import pandas as pd
 import datetime

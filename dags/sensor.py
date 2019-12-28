@@ -1,3 +1,9 @@
+"""
+This file is written originally for testing the csv files directly in the test/ directory. Now as the DAG is
+going to call the parser and will create tables in the tables in the database, this file will be only for a
+reference on how to use Airflow DAGs and self-defined operators
+"""
+
 from datetime import datetime
 
 from airflow import DAG
@@ -6,6 +12,11 @@ from airflow.operators.dummy_operator import DummyOperator
 from airflow.utils.trigger_rule import TriggerRule
 
 from operators.my_operators import StartOperator, DirectorySensor, ScriptParser
+
+__author__ = "Oscar Zhang"
+__email__ = "tzhang383@wisc.edu"
+__version__ = '0.1'
+__status__ = 'Development'
 
 dag = DAG('my_operator_tester_dag',
           description="'Testing custom operators",
