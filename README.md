@@ -137,7 +137,10 @@ Figure 1: Creation of new tables in the farms database
 <br>
 Figure 2: Inside the `feedwatch_dmi_data` table
 ![Demo 2](demo_2.png "Details in one of the tables created")
-
+<br>
+<br>
+Figure 3: The DAG structure for this ingestion
+![Demo_3](demo_3.png "DAG structure for feedwatch data ingest of larson")
 ## Things Left to Do
 ### Pipelines Need to be Created
 There are other pipelines/ingestion needed for the dairy data
