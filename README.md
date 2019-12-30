@@ -33,9 +33,9 @@ First, make sure docker is installed on your local machine.
 If not or you're not familiar with Docker, refer to the [here](https://www.docker.com/get-started).
 In the project directory on your local machine, run this command
 ```bash
-$ docker build -t <tag>:<label>
+$ docker build . -t <tag>:<label>
 ```
-where `<tag>` is the "name" for this image and `<label>` is default as "latest". You can then
+This example specifies that the PATH to the dockerfile is `.`, `<tag>` is the "name" for this image and `<label>` is default as "latest". You can then
 use `$ docker images` to check if the image is created on your local machine. <br />
 
 #### Modify Docker-Compose file to run the project 
