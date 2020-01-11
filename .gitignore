@@ -1,8 +1,9 @@
 .idea/
 .vscode/
-.test/
+
 
 plugins/operators/config.py
+ingest_scripts/
 
 ### Vim ###
 [._]*.s[a-w][a-z]

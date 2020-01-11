@@ -138,14 +138,21 @@ class ScriptParser(BaseOperator):
         log.info(str(script_map))
         for mapping in script_map:
             path = mapping['file_location']
-            log.info(path)
-            log.info(os.path.join(self.directory.split('/')[-3:-1][0], self.directory.split('/')[-3:-1][1]))
-            if path == os.path.join(self.directory.split('/')[-3:-1][0], self.directory.split('/')[-3:-1][1]):
+            # log.info(path)
+            # log.info(self.directory)
+            # log.info(os.path.join(self.directory.split('/')[-3:-1][0], self.directory.split('/')[-3:-1][1]))
+            if path == os.path.dirname(self.directory):
                 logging.info(str(mapping))
                 farm_id = mapping['farm_id']
                 script = mapping['script_name']
+            else:
+                # If the path does not match to the base directory passed in by the dag file, report this error
+                raise FileNotFoundError('Parsing directory may be wrong. Check DATA_SOURCE_DIRECTORY in the dag file!')
         files = context['task_instance'].xcom_pull(key='file_list')
+        log.info('List files to be parsed: ')
         log.info(files)
+
+        # possible error conditions: no script found or farm id does not exist
         if script == '':
             raise FileNotFoundError('No valid script found!')
         if farm_id == -1:

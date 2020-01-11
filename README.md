@@ -69,33 +69,12 @@ db_dialect = 'postgresql' # should always be postgresql
 ```
 The information should be varied if the database is set up on a local machine and should be relatively the same if connecting to a remote database server in WID.
 #### Build from .sql dump file
-Contact [Steve Wangen](https://github.com/blue442) for the database dump file. 
-Then, follow the [instructions](https://docs.google.com/document/d/17KATPtoOBHbVwZZ0HqmdPmrg-UV-6QlhttgVKIaiJ7Q/edit?usp=sharing)
-to complete the setup of your local PostgreSQL service for the project. When restoring the database from the dump, also
-pay attention to the notice below.
-
-#### Special notice for the dump file
-The code is built from a special format of the path because of the discrepancies between the actual remote drive and what 
-is in a table of the database, according to the dump. Therefore, to correctly run the code, we need to change the dump file
-a little bit (or you could also use SQL `UPDATE` to change the content of the database after restoring from the dump file).
-Inside the dump file, find the line 
-```sql
--- Data for Name: farm_datasource; Type: TABLE DATA; Schema: public; Owner: dairybrain
-```
-Below this line, there is a block of code that will set up the table `farm_datasource`. Replace the block with the following 
-below:
-```postgresql
-COPY public.farm_datasource (id, farm_id, software_id, software_version, file_location, datasource_type, script_name, script_arguments, active) FROM stdin;
-2	1	1	\N	larson/feedwatch/	feed	feed_data_ingest.py	\N	t
-4	2	1		wangen/dairycomp/	event	event_data_ingest.py		f
-6	3	\N	\N	mystic_valley/tmrtracker/	feed	feed_data_ingest.py		t
-5	3	\N	\N	mystic_valley/dairycomp/	event	event_data_ingest.py		t
-3	1	1	\N	test/feedwatch	feed	feed_data_ingest.py	\N	t
-7	6	\N	\N	arlington/dairycomp	event	event_data_ingest.py	\N	t
-\.
-```
-Note that all of the directory are in 2-level relative paths, because it is unclear how the file system is like in the remote server.
-Therefore, for testing purposes, I used this relative path as a standard.
+Follow the [instructions](https://docs.google.com/document/d/17KATPtoOBHbVwZZ0HqmdPmrg-UV-6QlhttgVKIaiJ7Q/edit?usp=sharing)
+to build the PostgreSQL database from `farmsdb_dump.sql` in the root of the project repository. This .sql file is dumped from my local machine, which is also used for
+testing pipeline. You could contact [Steve Wangen](https://github.com/blue442) for the original database dump file. 
+However, in that dump file, the `farm_datasource` table contains information that is mismatch with what [Andrew](https://dairybrain.wisc.edu/staff/maier-andrew/)
+provided me. Therefore, I modified the database dumped from the original dump file so that the `file_location` column in `farm_datasource` table has a consistent format,
+which is convenient for testing and production.
 
 ### Some Important Concepts
 #### Volume mapping
@@ -143,7 +122,7 @@ Refer to him if you have any further question about this remote drive.
 ## Running Example
 I have made the example of data ingestion of `larson/feedwatch`. The data inside can be successfully fetched, pulled to 
 DAG structures, parsed by the modified scripts, and store in the new tables in the database. This is considered as a 
-success of one instance of the data sourses. I am using a subset of the `larson/feedwatch` data, which is under `test/larson/feedwatch/`
+success of one instance of the data sources. I am using a subset of the `larson/feedwatch` data, which is under `test/larson/feedwatch/`
 in this project. The DAG file of this pipeline is `/dags/larson_feedwatch.py`. Here are some running demos. <br />
 Figure 1: Creation of new tables in the farms database
 ![Demo 1](demo_1.png "Creation of two new tables from feedwatch data")
@@ -174,6 +153,9 @@ to airflow's task instance for later use.
 
 #### `ScriptParser` (inherits `airflow.models.BaseOperator`)
 The task instanciated by this class will use the data-script mapping retrieved from the database from `StartOperator` as a logic to decide what parser to apply on the files received from the last task (task instanciated from `DirectorySensor` class) . The task will then call the parser directly.
+* Raise `FileNotFoundError: Parsing directory may be wrong. Check DATA_SOURCE_DIRECTORY in the dag file!` when the file location from database is mismatch the file location provided in the DAG file.
+* Raise `FileNotFoundError: No valid script found!` when no script is found from database.
+* Raise `ValueError: No valid Farm ID!` when no valid farm id is found from database.
 
 ### Tasks and Stages
 Each DAG should have 5 stages separated by different tasks. <br/><br/>
@@ -188,7 +170,15 @@ The forth stage is parsing. The parsing tasks are also separated by "dates" dire
 The fifth/last stage is the finishing stage. The task on this stage will be triggered when all the previous tasks are done (regardless of success or failure).
 
 ### DAG Implementation and Thoughts
-I personally think the ideal DAG implementation should be that each data type in a farm should have its unique dag, instead of dynamically creating new dags if there are new data types or new farms coming in. This makes sense because as there are new datasources, the database we rely on will also change and also there may be new ingest scripts adding into the repository. Therefore, making DAGs for 'farm/datatype' is my proposed solution right now.
+In the `dags/larson_feedwatch.py`, there is a line at the top:
+```python
+# This is the path that defines the place of datasource. In the development phase, it is inside
+# this folder path in the docker container
+DATA_SOURCE_DIRECTORY = '/usr/local/airflow/test/larson/feedwatch'
+# COULD CHANGE THE PATH FOR FURTHER DEVELOPMENT OR REAL-ENVIRONMENT TESTING
+```
+As the comment says, this is a hard-coded directory for testing purposes. In the future, if the data source location has been changed to remote, change this path as well. <br />
+I personally think the ideal DAG implementation should be that each data type in a farm should have its unique dag, instead of dynamically creating new dags if there are new data types or new farms coming in. This makes sense because as there are new data sources, the database we rely on will also change and also there may be new ingest scripts adding into the repository. Therefore, making DAGs for 'farm/datatype' is my proposed solution right now.
 
 ## Things Left to Do
 ### Pipelines Need to be Created
@@ -196,6 +186,10 @@ There are other pipelines/ingestion needed for the dairy data
 * event data ingestion (currently don't have the script matched to `event_data_ingest.py` in the ingest_scripts repository)
 * agsource data ingestion (currently don't have the script matched to `agsource_data_ingest.py` in the ingest_scripts repository)
 * milk data ingestion (currently don't have the matching data source)
+
+### Dynamic Trigger Rule
+The current functionality is: pipelining existing data files in a fixed directory. This need to be changed so that the DAG will be triggered dynamically, meaning whenever there are new 'date' folder coming in the DAG will run.
+This could be achieved by modifying Operators or DAG files; need to be discussed further.
 
 ### Possible Modifications on Ingest Scripts
 Currently, the existing [ingest_scripts](https://github.com/DairyBrain/ingest_scripts) are command-line based bash programs which force users to input arguments. This is not convenient when one wants to call a specific script in an Airflow Operator; therefore, the existing scripts may need to be changed into python callable functions in order to be called directly in an Airflow Operator, while preserving its core funcitonality. 
