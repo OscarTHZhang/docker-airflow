@@ -11,46 +11,31 @@
     be used to specify one or more input files, along with a verbosity level.
  """
 
-
-import argparse
 import csv
 import logging
 import os.path
 
 
-__author__ = "Steven Wangen"
-__version__ = "1.0.1"
-__email__ = "srwangen@wisc.edu"
+__author__ = "Steven Wangen, Oscar Zhang"
+__version__ = "1.0.2"
+__email__ = "srwangen@wisc.edu, tzhang383@wisc.edu"
 __status__ = "Development"
 
 
 logger = logging.getLogger(__name__)
 
 
-def parse_args():
-    parser = argparse.ArgumentParser(description='Read export files from DairyComp software and remove extraneous commas in remarks.')
-    parser.add_argument("-v", "--verbose", action='store_true',
-                    help="increase verbosity to include debug messages.")
-    parser.add_argument('filenames', metavar='filenames', type=str, nargs='*',
-                    help='name of file(s) to be processed')
-    
-    args = parser.parse_args()
-    main(args)
+def data_ingest(file_directory):
+    # parse files
+    # determine files
+    filenames = []
+    if not os.path.isdir(file_directory):
+        filenames.append(file_directory)
+    elif os.path.isdir(file_directory):
+        for fn in os.path(file_directory):
+            filenames.append(fn)
 
-
-def main(args):
-    # set logging level
-    if args.verbose:
-        log_level = logging.DEBUG
-    else:
-        log_level = logging.WARN
-    logging.basicConfig(level=log_level,
-                        format='%(asctime)s %(levelname)s %(message)s')
-
-    logging.debug('args = ' + str(args))
-    
-    # parse files 
-    for filename in args.filenames:
+    for filename in filenames:
         logging.info("parsing files: " + str(filename))
         if os.path.exists(filename):
             parse_file(filename)
@@ -59,7 +44,6 @@ def main(args):
 
 
 def parse_file(in_filename):
-    num_columns = 0
     filename, file_extension = os.path.splitext(in_filename)
     out_filename = filename + "_fixed" + file_extension
     with open(out_filename, "w+") as out_csv:
@@ -95,9 +79,3 @@ def shrink_row(row, num_columns):
             remark += row.pop(9)
         row[8] = remark
     return row
-
-
-if __name__ == "__main__":
-    # main(sys.argv)
-    parse_args()
-
