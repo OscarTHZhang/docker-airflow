@@ -16,8 +16,7 @@ import psycopg2
 from airflow.models import BaseOperator
 from airflow.plugins_manager import AirflowPlugin
 from airflow.utils.decorators import apply_defaults
-from operators import config
-from operators import  feed_data_ingest
+from operators import config, feed_data_ingest
 
 
 log = logging.getLogger(__name__)
