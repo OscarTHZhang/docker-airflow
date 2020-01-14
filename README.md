@@ -157,6 +157,9 @@ The task instanciated by this class will use the data-script mapping retrieved f
 * Raise `FileNotFoundError: No valid script found!` when no script is found from database.
 * Raise `ValueError: No valid Farm ID!` when no valid farm id is found from database.
 
+### Ingestion API
+Inside `plugins/` I made some additions: `configs/`, which stores the configurations for all of the modules inside plugins, and `IngestAPI/`, which is a plugin that is not currently in used but possibly used in the future development. I also create a stand-alone repo for this API based on `configs/` and `IngestAPI/` and you can refer to [this repo](https://github.com/DairyBrain/ingestion-api) for detailed documentation.
+
 ### Tasks and Stages
 Each DAG should have 5 stages separated by different tasks. <br/><br/>
 The first stage is represented by 'star_operator' task. The functionality of this task is inside the `StartOperator` documentation. 
