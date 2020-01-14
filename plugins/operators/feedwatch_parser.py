@@ -221,7 +221,7 @@ def create_cost_table(db_engine):
                 con.execute(create_cost_table_statement)
             except Exception as e:
                 logger.error("Error creating the dairycomp cost table in database!")
-                logger.error(e.message)
+                logger.error(e)
                 exit(1)
 
 
@@ -253,7 +253,7 @@ def create_temp_cost_table(db_engine, uuid_str):
             con.execute(create_temp_table_statement)
         except Exception as e:
             logger.error("Error creating the temp_cost table from database!")
-            logger.error(e.message)
+            logger.error(e)
             exit(1)
 
 

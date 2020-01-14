@@ -16,7 +16,7 @@ __email__ = 'tzhang383@wisc.edu'
 __version__ = '0.1'
 __status__ = 'Development'
 
-# This is the path that defines the place of datasource. In the development phase, it is inside
+# This is the path that defines the place of data source. In the development phase, it is inside
 # this folder path in the docker container
 DATA_SOURCE_DIRECTORY = '/usr/local/airflow/test/larson/feedwatch'
 # COULD CHANGE THE PATH FOR FURTHER DEVELOPMENT OR REAL-ENVIRONMENT TESTING
@@ -60,14 +60,15 @@ starter_task >> separator_task
 task_id = 0
 for date_dir in walking(DATA_SOURCE_DIRECTORY):
     task_id += 1
+    label = os.path.basename(date_dir)
     sub_sensing_task = DirectorySensor(
         directory=date_dir,
-        task_id="directory_sensor_{}".format(task_id),
+        task_id="directory_sensor_{}_{}".format(task_id, label),
         dag=dag
     )
     sub_parsing_task = ScriptParser(
         directory=date_dir,
-        task_id="script_parser_{}".format(task_id),
+        task_id="script_parser_{}_{}".format(task_id, label),
         dag=dag
     )
     separator_task >> sub_sensing_task >> sub_parsing_task >> finish_task

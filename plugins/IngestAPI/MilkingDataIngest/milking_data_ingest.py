@@ -3,13 +3,9 @@
     files from feed management software into a database or file """
 
 
-import sys
 import os.path
-import argparse
 import logging
-from sqlalchemy import create_engine
 
-import config
 from IngestAPI.MilkingDataIngest import alpro_parser
 from configs.getEngine import get_db_engine
 
