@@ -7,9 +7,9 @@ __version__ = '0.1'
 __status__ = 'Development'
 """
 
-db_password = "1234567890"
-db_user = "dairybrain"
-db_host = "host.docker.internal"  # host name only works on Mac OSX
+db_password = "some_password"
+db_user = "name_of_user"
+db_host = "host_name"  # host name only works on Mac OSX
 db_port = '5432'
 db_database = 'farms'
 db_dialect = 'postgresql'

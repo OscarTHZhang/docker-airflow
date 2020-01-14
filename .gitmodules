@@ -1,3 +1,0 @@
-[submodule "ingest_scripts"]
-	path = ingest_scripts
-	url = https://github.com/DairyBrain/ingest_scripts

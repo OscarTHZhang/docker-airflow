@@ -175,7 +175,7 @@ The fifth/last stage is the finishing stage. The task on this stage will be trig
 ### DAG Implementation and Thoughts
 In the `dags/larson_feedwatch.py`, there is a line at the top:
 ```python
-# This is the path that defines the place of datasource. In the development phase, it is inside
+# This is the path that defines the place of data source. In the development phase, it is inside
 # this folder path in the docker container
 DATA_SOURCE_DIRECTORY = '/usr/local/airflow/test/larson/feedwatch'
 # COULD CHANGE THE PATH FOR FURTHER DEVELOPMENT OR REAL-ENVIRONMENT TESTING
@@ -184,20 +184,15 @@ As the comment says, this is a hard-coded directory for testing purposes. In the
 I personally think the ideal DAG implementation should be that each data type in a farm should have its unique dag, instead of dynamically creating new dags if there are new data types or new farms coming in. This makes sense because as there are new data sources, the database we rely on will also change and also there may be new ingest scripts adding into the repository. Therefore, making DAGs for 'farm/datatype' is my proposed solution right now.
 
 ## Things Left to Do
-### Pipelines Need to be Created
-There are other pipelines/ingestion needed for the dairy data
-* event data ingestion (currently don't have the script matched to `event_data_ingest.py` in the ingest_scripts repository)
-* agsource data ingestion (currently don't have the script matched to `agsource_data_ingest.py` in the ingest_scripts repository)
-* milk data ingestion (currently don't have the matching data source)
+### Reassure the Name of Ingest Scripts / Modules
+There are some name of the ingestion that need to be verified as they are not matched to what is in the database table
+* event data ingestion (currently don't have the script matched to `event_data_ingest.py` in the ingest_scripts repository). Should it be `dairycomp_data_ingest.py`?
+* agsource data ingestion (currently don't have the script matched to `agsource_data_ingest.py` in the ingest_scripts repository). Should it be `dhi_data_ingest.py`?
+* milk data ingestion (currently don't have the matching data source in the remote drive)
 
 ### Dynamic Trigger Rule
 The current functionality is: pipelining existing data files in a fixed directory. This need to be changed so that the DAG will be triggered dynamically, meaning whenever there are new 'date' folder coming in the DAG will run.
 This could be achieved by modifying Operators or DAG files; need to be discussed further.
-
-### Possible Modifications on Ingest Scripts
-Currently, the existing [ingest_scripts](https://github.com/DairyBrain/ingest_scripts) are command-line based bash programs which force users to input arguments. This is not convenient when one wants to call a specific script in an Airflow Operator; therefore, the existing scripts may need to be changed into python callable functions in order to be called directly in an Airflow Operator, while preserving its core funcitonality. 
-<br /><br />
-I have already made a modified version of `feed_data_ingest.py`, which is `./plugins/operators/feed_data_ingest.py` in this repository. The callable function in this python file is called `data_ingest`, which takes in 4 parameters: `file_directory`, `is_testing`, `farm_id`, and `db_log`. They are the same arguments when calling `feed_data_ingest.py` as a python bash program.
 
 ### Running Environment Setup
 Currently I am testing the code on my local machine with PostgreSQL server on localhost and a local Docker container. The
